@@ -12,7 +12,7 @@ app.use(express.urlencoded({
 app.use(cors())
 
 app.post('/login', (req, res) => {
-    res.send("{'auth': true}")
+    res.send({'auth': true})
 })
 
 app.use('*', (req, res) => {

@@ -9,3 +9,15 @@ services:
     ports:
       - 5050:5050
     network_mode: "host"
+  
+  database:
+    image: 192.168.56.1:5000/database
+    container_name: database
+    build:
+      context: .
+      dockerfile: database/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 30306:3306
+    network_mode: "host"
