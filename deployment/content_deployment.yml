@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: content
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      layer: content
+  template:
+    metadata:
+      name: content
+      labels:
+        layer: content
+    spec:
+      containers:
+      - name: content
+        image: 192.168.56.1:5000/content
+        ports:
+        - containerPort: 5056

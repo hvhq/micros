@@ -4,7 +4,7 @@ use micros;
 
 drop table if exists user;
 create table user (
-    ID varchar(51),
+    ID int not null auto_increment,
     username varchar(20),
     password varchar(100),
     constraint username_unique unique(username),
@@ -13,7 +13,7 @@ create table user (
 
 drop table if exists note;
 create table note (
-    ID varchar(51),
+    ID int not null auto_increment,
     content varchar(250),
     owner varchar(51),
     constraint note_pk primary key (ID)
@@ -21,8 +21,8 @@ create table note (
 
 drop table if exists editpermission;
 create table editpermission (
-    userID varchar(51),
-    noteID varchar(51),
+    userID int,
+    noteID int,
     constraint editpermission_user_fk foreign key (userID) references user(ID),
     constraint editpermission_note_fk foreign key (noteID) references note(ID)
 );

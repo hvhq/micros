@@ -10,6 +10,23 @@ services:
       - 5050:5050
     network_mode: "host"
   
+  authentication:
+    image: 192.168.56.1:5000/authentication
+    container_name: authentication
+    build:
+      context: .
+      dockerfile: authentication/Dockerfile 
+    ports:
+      - 5053:5053
+    network_mode: "host"
+
+  content:
+    image: 192.168.56.1:5000/content
+    container_name: content
+    build:
+      context: .
+      dockerfile: content/Dockerfile
+
   database:
     image: 192.168.56.1:5000/database
     container_name: database

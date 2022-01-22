@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      layer: authentication
+  template:
+    metadata:
+      name: authentication
+      labels:
+        layer: authentication
+    spec:
+      containers:
+      - name: authentication
+        image: 192.168.56.1:5000/authentication
+        ports:
+        - containerPort: 5053

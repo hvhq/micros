@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sauthentication
+spec:
+  selector:
+    layer: authentication
+  type: NodePort
+  ports:
+  - port: 5053
+    targetPort: 5053
+    nodePort: 30053
